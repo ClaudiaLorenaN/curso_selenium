@@ -10,6 +10,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from Funciones.Funciones import Funciones_Globales
 
+t = 2
 class base_test(unittest.TestCase):
 
 
@@ -27,11 +28,11 @@ class base_test(unittest.TestCase):
     def test2(self):
         driver = self.driver
         f = Funciones_Globales(driver)
-        driver.get("https://www.saucedemo.com/")
-        driver.maximize_window()
-        f.tiempo(5)
-
-
+        f.navegar("https://www.saucedemo.com/", t)
+        #f.Texto_xpath_validar("//input[contains(@id,'user-name')]","Claudia", t)
+        #f.Texto_xpath_validar("//input[contains(@id,'password')]", "admin123", t)
+        f.Texto_ID_validar("user-name", "Claudia", t)
+        f.Texto_ID_validar("password", "admin123", t)
 
 
     def tearDown(self):
